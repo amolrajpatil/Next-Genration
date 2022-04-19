@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="SuiteWithPackageAndTestConfig" thread-count="2">
+        <packages>
+    	<package name="com.atipune.testng.basics" />
+        </packages>  
+
+	<test name="TestPackageConfig">
+    <groups>
+       <define name="all">
+    	<include name="regresion"/>
+    	<include name="sanity"/>
+       </define>
+        <run>
+      	<include name="all"/>
+       	<exclude name="broken"/>
+        </run>
+    </groups>
+  	</test> <!-- Test -->
+  	
+</suite> <!-- Suite -->

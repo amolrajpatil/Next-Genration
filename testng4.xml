@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="ParallelSuite" parallel="tests" thread-count="7">
+
+  <test name="ParallelTest1">
+    <groups>
+    <define name="all">
+    	<include name="regresion"/>
+    	<include name="sanity"/>
+    </define>
+    
+    <run>
+    	<include name="all" />
+    	<exclude name="broken"/>
+    </run>
+
+    </groups>
+
+    <packages>
+      <package name="com.atipune.testng.basics"/>
+    </packages>
+
+  </test> <!-- Test -->
+
+  <test name="ParallelTest2">
+    <classes>
+   		<class name="com.atipune.testng.basics.TestNGAsserts">	
+   		<methods>
+		<include name="verifyHomePageTitle"/>
+		<include name="verifyFirstBookTitle"/>
+		</methods>    
+      </class>
+    </classes>
+  </test> <!-- Test -->
+  
+  
+  <test name="ParallelTest3">
+    <classes>
+   		<class name="com.atipune.testng.basics.TestNgAttributes">
+    </class>
+    </classes>
+  </test> <!-- Test -->
+  
+  </suite>
